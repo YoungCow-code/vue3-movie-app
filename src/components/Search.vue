@@ -78,6 +78,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../scss/main";
+
 .container{
     display: flex;
     > * {
@@ -103,5 +105,22 @@ export default {
         font-weight: 700;
         flex-shrink: 0; // 절대값이 상대적 요소에 의해서 줄어드는것을 방지
     }
+    @include media-breakpoint-down(lg){
+    display: block;
+    input {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .selects{
+        margin-right: 0;
+        margin-bottom: 10px;
+        select{
+            width: 100%;
+        }
+    }
+    .btn{
+        width: 100%;
+    }
+}
 }
 </style>
