@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import mapState from 'vuex'
 import MovieItem from './MovieItem.vue'
 import Loader from './Loader.vue'
 export default {
@@ -24,17 +25,11 @@ export default {
         Loader,
     },
     computed: {
-        movies(){
-            console.log(this.$store.state.movie.movies);
-            return this.$store.state.movie.movies
-            
-        },
-        message(){
-            return this.$store.state.movie.message
-        },
-        loading(){
-            return this.$store.state.movie.loading
-        }
+        ...mapState('movie', [
+            'movies',
+            'message',
+            'loading'
+        ])
     }
 }
 </script>
