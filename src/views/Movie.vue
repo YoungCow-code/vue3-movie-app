@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+// import {mapActions} from 'vuex'
 import Loader from '../components/Loader.vue'
 export default {
     components: {
@@ -89,13 +89,13 @@ export default {
     },
     created(){
         console.log(this.$route);
-        // this.$store.dispatch('movie/searchMovieWithId', {
-            this.searchMovieWithId({
+        this.$store.dispatch('movie/searchMovieWithId', {
+            // this.searchMovieWithId({
             id: this.$route.params.id
         })
     },
     methods: {
-        ...mapActions('movie', ['searchMovieWithId']),
+        // ...mapActions('movie', ['searchMovieWithId']),
         requestDiffSizeImage(url, size= 700){
             if (!url || url == 'N/A') {
                 this.imageLoading = false

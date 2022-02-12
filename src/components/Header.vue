@@ -3,9 +3,11 @@
     <Logo />
     <div class="nav nav-pills">
       <div class="nav-item" v-for="nav in navigations" :key="nav.name">
-        <RouterLink :to="nav.href" active-class="active" :class="{ active: isMatch(nav.path) }" class="nav-link">
-          {{nav.name}}
+        <RouterLink  :to="nav.href" active-class="active" :class="{ active: isMatch(nav.path) }" class="nav-link" >
+          <span v-if="nav.name == 'Movie'" @click="myFunction">{{nav.name}}</span>
+          <span v-else>{{nav.name}}</span>
         </RouterLink>
+
       </div>
     </div>
     <RouterLink to="/about" class="user">
@@ -15,12 +17,11 @@
 </template>
 
 <script>
-import mapState from 'vuex'
 import Logo from './Logo.vue'
 
 export default {
   components:{
-    Logo
+    Logo,
   },
   data(){
     return{
@@ -31,27 +32,32 @@ export default {
         },
         {
           name: 'Movie',
-          href: '/movie',
+          href: '/movie/tt4520988',
           path: /^\/movie/
         },
         {
           name: 'About',
           href: '/about'
         }
-      ]
+      ],
     }
   },
   computed: {
-    ...mapState('about', [
-      'image',
-      'name',
-    ]),
+    image(){
+      return this.$store.state.about.image
+    },
+    name(){
+      return this.$store.state.about.name
+    },
   },
   methods: {
     isMatch(path) {
       if (!path) return false 
       console.log(this.$route);
       return path.test(this.$route.fullPath)
+    },
+    myFunction() {
+      alert("Search를 통해 검색해주세요");
     }
   }
 }

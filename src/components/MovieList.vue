@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import mapState from 'vuex'
+import { mapState } from 'vuex'
 import MovieItem from './MovieItem.vue'
 import Loader from './Loader.vue'
 export default {

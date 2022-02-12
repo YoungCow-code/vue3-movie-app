@@ -16,7 +16,7 @@ const routes = [
 
     path: '/movie/:id',
     name: 'Movie',
-    component: Movie
+    component: Movie,
   },
   {
     path: '/about',
@@ -39,6 +39,9 @@ const router = createRouter({
   // Hash
   // https://google.com/#/search
   history: createWebHashHistory(process.env.BASE_URL),
+  scrollBehavior(){
+    return { top: 0}
+  },
   routes
 })
 
