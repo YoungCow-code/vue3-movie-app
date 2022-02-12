@@ -1,4 +1,5 @@
 # vue3-movie-app
+# 본 프로젝트는 클론코딩입니다.
 
 ## Project setup
 ```
